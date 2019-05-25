@@ -15,7 +15,7 @@ int main(int argc, char	*argv[]) {
 	sprintf(strInFilePath, "./BIGFILE/%s", fName);
 
 	FILE *fp_in;
-	if ( (fp_in = fopen(strInFilePath, "r")) ==	NULL )
+	if ( (fp_in = fopen(strInFilePath, "r")) == NULL )
 	{
 		perror("input file open	error: ");
 		exit(1);

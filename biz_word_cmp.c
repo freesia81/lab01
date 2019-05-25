@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <ctype.h>
 
-int	main(int argc, char	*argv[]) {
+int main(int argc, char	*argv[]) {
 	
 	char strBase[1000] = {0, };
 	char tmp[1000] = {0, };
@@ -42,8 +42,7 @@ int	main(int argc, char	*argv[]) {
 	}
 	
 	printf("org: %s\n", strBase);
-	printf("zip: %s\n", tmp);
-	
+	printf("zip: %s\n", tmp);	
 
 	return 0;
 }

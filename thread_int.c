@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 	pthread_t thread;
 
 	// 10개 쓰레드 생성 
-	for ( int i=0; i<100; i++ )
+	for ( int i=0; i<10; i++ )
 	{
 		increase_thread_count();
 

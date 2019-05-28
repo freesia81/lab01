@@ -7,7 +7,7 @@ typedef struct {
 	int  num;
 } USER_TYPE;
 
-/* Á¤¼öÇü ¿À¸§Â÷¼ø Á¤·Ä */
+/* ì •ìˆ˜ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ */
 int asc_compare_int(const void *a, const void *b)
 {
 	int num1 = ((USER_TYPE *)a)->num;
@@ -16,7 +16,7 @@ int asc_compare_int(const void *a, const void *b)
 	return num1 - num2;
 }
 
-/* Á¤¼öÇü ³»¸²Â÷¼ø Á¤·Ä */
+/* ì •ìˆ˜ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ */
 int desc_compare_int(const void *a, const void *b)
 {
 	int num1 = ((USER_TYPE *)a)->num;
@@ -25,7 +25,7 @@ int desc_compare_int(const void *a, const void *b)
 	return num2 - num1;
 }
 
-/* ¹®ÀÚ¿­ ¿À¸§Â÷¼ø Á¤·Ä */
+/* ë¬¸ìžì—´ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ */
 int asc_compare_str(const void *a, const void *b)
 {
 	char *str1 = ((USER_TYPE *)a)->str;
@@ -34,7 +34,7 @@ int asc_compare_str(const void *a, const void *b)
 	return strcmp(str1, str2);
 }
 
-/* ¹®ÀÚ¿­ ³»¸²Â÷¼ø Á¤·Ä */
+/* ë¬¸ìžì—´ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ */
 int desc_compare_str(const void *a, const void *b)
 {
 	char *str1 = ((USER_TYPE *)a)->str;
@@ -43,7 +43,22 @@ int desc_compare_str(const void *a, const void *b)
 	return strcmp(str2, str1);
 }
 
+// ë¬¸ìžì—´ + ì •ìˆ˜í˜• ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+int asc_compare_str_int(const void *a, const void *b)
+{
+	char *str1 = ((USER_TYPE *)a)->str;
+	char *str2 = ((USER_TYPE *)b)->str;
 
+	int num1 = ((USER_TYPE *)a)->num;
+	int num2 = ((USER_TYPE *)b)->num;
+
+	if ( strcmp(str1, str2) != 0) 
+		return strcmp(str1, str2);
+	else 
+		return num1 - num2;
+}
+
+// êµ¬ì¡°ì²´ ì¶œë ¥í•¨ìˆ˜
 void PrintData(USER_TYPE *p, int cnt)
 {
 	for(int i=0; i<cnt; i++)
@@ -54,23 +69,19 @@ void PrintData(USER_TYPE *p, int cnt)
 
 int main(int argc, char *argv[])
 {
-	USER_TYPE data[3] = {{"Ami", 25}, {"Jason",   5}, {"Babi",    40}};
+	USER_TYPE data[4] = {{"AAA", 25}, {"JJJ", 5}, {"BBB", 40}, {"JJJ", 2}};
 
-	// Á¤¼öÇü ¿À¸§Â÷¼ø Á¤·Ä
-	qsort(data, sizeof(data)/sizeof(USER_TYPE), sizeof(USER_TYPE), asc_compare_int);
-	PrintData(data, 3);
-
-	// Á¤¼öÇü ³»¸²Â÷¼ø Á¤·Ä
-	qsort(data, sizeof(data)/sizeof(USER_TYPE), sizeof(USER_TYPE), desc_compare_int);
-	PrintData(data, 3);
-
-	// ¹®ÀÚ¿­ ¿À¸§Â÷¼ø Á¤·Ä
+	// ë¬¸ìžì—´ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 	qsort(data, sizeof(data)/sizeof(USER_TYPE), sizeof(USER_TYPE), asc_compare_str);
-	PrintData(data, 3);
+	PrintData(data, 4);
 
-	// ¹®ÀÚ¿­ ³»¸²Â÷¼ø Á¤·Ä
-	qsort(data, sizeof(data)/sizeof(USER_TYPE), sizeof(USER_TYPE), desc_compare_str);
-	PrintData(data, 3);
+	// ì •ìˆ˜ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+	qsort(data, sizeof(data)/sizeof(USER_TYPE), sizeof(USER_TYPE), asc_compare_int);
+	PrintData(data, 4);
+
+	// ë¬¸ìžì—´ + ì •ìˆ˜ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+	qsort(data, sizeof(data)/sizeof(USER_TYPE), sizeof(USER_TYPE), asc_compare_str_int);
+	PrintData(data, 4);
 
 	return 0;
 

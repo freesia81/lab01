@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 		char buf[MAX_DATA_LENGTH] = {0, };
 		char *ptr;
 
-		// È®ÀåÀÚ Á¦°Å
+		// íŒŒì¼ 
 		memset(buf, 0x00, sizeof(buf));
 		strcpy(buf, fNameList[i]);
 		if ( (ptr = strchr(buf, '.')) != NULL )

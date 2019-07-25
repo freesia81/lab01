@@ -1,10 +1,3 @@
-/*
- * util_tiem.c
- *
- *  Created on: 2018. 7. 20.
- *      Author: ccomasora
- */
-
 
 #include <stdio.h>
 #include <stdlib.h>
